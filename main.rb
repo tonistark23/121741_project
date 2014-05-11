@@ -104,6 +104,7 @@ params[:thousands].to_i < 0
 			@product = Item.find(params[:id]) #debug for amt > quantity. nothing negative
 			@qSold = params[:amount].to_i
 			@calculator = MoneyCalculator.new(params[:ones], params[:fives], params[:tens], params[:twenties], params[:fifties], params[:hundreds], params[:five_hundreds], params[:thousands])
+			@change = @calculator.change(@product.price * @qSold) #[6] CUA, KEVIN
 			if @calculator.give_sum.to_i < (@qSold.to_i * @product.price.to_i)
 				erb :error
 			else
