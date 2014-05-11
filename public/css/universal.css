@@ -1,0 +1,51 @@
+h1{
+	color:#0f3967;
+	font-size:40px;
+	margin:20px 0px 0px 20px;
+}
+
+h2{
+	color:#0f3967;
+	margin:0px 10px;
+}
+
+body {
+background-color:transparent; 
+font-family: "Harabarahand Italic";
+overflow-x: hidden; /*hmm*/
+overflow-y: auto;
+
+}
+
+.container
+{
+width:350px;
+height: 400px;
+display: inline-block
+
+}
+
+div img {
+border:1px solid #E6E3C2;
+margin:0px 1px 5px 20px;
+	width:300px;
+	padding:4px;
+	border:1px solid #ddd;
+	-moz-box-shadow:1px 1px 1px #fff;
+	-webkit-box-shadow:1px 1px 1px #fff;
+	box-shadow:1px 1px 1px #fff;
+	
+}
+
+.form-control {
+width: 20%;
+}
+
+.form-group {
+margin-bottom: -10px;
+}
+
+.btn-primary
+{
+margin-top: 20px;
+}

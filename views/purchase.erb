@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Purchase an Item </title>
+	<link rel = "stylesheet" type = "text/css" href = "/css/bootstrap.min.css" />
+	<link rel = "stylesheet" type = "text/css" href = "/css/universal.css" />
+	<script src="/cufon/cufon-yui.js" type="text/javascript"></script>
+	<script src="/cufon/wc-mano-negra.cufonfonts.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		Cufon.replace('.wc-mano-negra-bta', { fontFamily: 'WC Mano Negra Bta', hover: true }); 
+		Cufon.replace('.wc-mano-negra-bta-bold', { fontFamily: 'WC Mano Negra Bta Bold', hover: true }); 
+		Cufon.replace('h2,p,td,a,div,form,button', { fontFamily: 'WC Mano Negra Bta Bold', hover: true }); 
+	</script>
+</head>
+		
+<body style = "font-family: "WC Mano Negra Bta Bold";">
+	<h2> Purchasing <%= @product.name %> </h2>
+	<img src="/images/h1.png" alt="" />
+	<h2> Price: <%= @product.price %> | Quantity: <%= @product.quantity %> </h2>
+
+ <form name = "Transaction" role="form" method="POST" action= "/purchase_product/<%= @product.id %>" class = "form-horizontal" >
+	<div class="form-group">
+		<label for="amount" class="col-sm-2 control-label">Enter amount of item you wish to purchase: </label>
+		<div class="col-sm-5 dogs">
+			<select class="form-control" id ="amount" name ="amount">
+			<% (1..@product.quantity).each do |i| %>
+			<option> <%= i %> </option>
+			<% end %>
+			</select>
+	  </div>
+  </div>
+  <!-- money -->
+    <div class="form-group">
+		<label for="ones" class="col-sm-2 control-label">Enter amount of ones you will use to pay: </label>
+         <div class="col-sm-5">
+  		    <input type = "number" class="form-control" id = "ones" name = "ones" value = "0" />
+		</div>
+	</div>
+  
+    <div class="form-group">
+		<label for="fives" class="col-sm-2 control-label">Enter amount of fives you will use to pay: </label>
+         <div class="col-sm-5">
+		  <input type = "number"  class="form-control" id = "fives" name = "fives"value = "0" />
+		</div>
+    </div>
+
+    <div class="form-group">
+		<label for="tens" class="col-sm-2 control-label">Enter amount of tens you will use to pay: </label>
+        <div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "tens" name = "tens" value = "0"/>
+       </div>
+  </div>
+  
+  
+    <div class="form-group">
+		<label for="twenties" class="col-sm-2 control-label">Enter amount of twenties you will use to pay:</label>
+        <div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "twenties" name = "twenties" value = "0" />
+      </div>
+  </div>
+  
+    <div class="form-group">
+		<label for="fifties" class="col-sm-2 control-label">Enter amount of fifties you will use to pay: </label>
+        <div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "fifties" name = "fifties" value = "0" />
+        </div>
+   </div>
+
+    <div class="form-group">
+	   <label for="hundreds" class="col-sm-2 control-label">Enter amount of hundreds you will use to pay: </label>
+       <div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "hundreds" name = "hundreds" value = "0" />
+	  </div>
+  </div>
+  
+   <div class="form-group">
+		<label for="five_hundreds" class="col-sm-2 control-label">Enter amount of five hundreds you will use to pay:</label>
+	   <div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "five_hundreds" name = "five_hundreds" value = "0" />
+		</div>
+  </div>
+
+   <div class="form-group">
+		<label for="thousands" class="col-sm-2 control-label">Enter amount of thousands you will use to pay:</label>
+		<div class="col-sm-5">
+		  <input type = "number" class="form-control" id = "thousands" name = "thousands" value = "0" />
+       </div>
+  </div>
+
+  <button type="submit" class="btn btn-default btn-primary" id = "submit"> Submit </button> 
+ 
+</form>
+     <a href = "../products">   <button class="btn btn-default btn-info" >Back </button> </a>
+   
+  <br /> <br />
+
+</body>
+
+</html>

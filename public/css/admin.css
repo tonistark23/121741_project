@@ -1,0 +1,27 @@
+.admin {
+  text-align: center;
+  font-size: 9pt;
+}
+
+.myButton {
+    width: 50px;
+    font-size: 9pt;
+    padding: 6px 8px;
+}
+
+.container
+{
+padding: 0px 0px 0px 0px;
+width:300px; 
+height: 400px; 
+display: inline-block
+}
+
+body
+{
+background-color : transparent;
+
+}
+
+
+
