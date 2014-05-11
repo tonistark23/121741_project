@@ -11,6 +11,7 @@ attr_accessor :ones, :fives, :tens, :twenties, :fifties, :hundreds, :five_hundre
     @hundreds = hundreds.to_i
     @five_hundreds = five_hundreds.to_i
     @thousands = thousands.to_i
+    @sum = @ones+(@fives*5)+(@tens*10)+(@twenties*20)+(@fifties*50)+(@hundreds*100)+(@five_hundreds*500)+(@thousands*1000)
     # each parameter represents the quantity per denomination of money
     # these parameters can be assigned to instance variables and used for computation
 
@@ -21,7 +22,7 @@ attr_accessor :ones, :fives, :tens, :twenties, :fifties, :hundreds, :five_hundre
   end
   
   def change(price)	  	
-  	@sum = @ones+(@fives*5)+(@tens*10)+(@twenties*20)+(@fifties*50)+(@hundreds*100)+(@five_hundreds*500)+(@thousands*1000)
+
   	res = @sum.to_i - price.to_i
   	@res = res
   	@ones = 0
@@ -32,6 +33,8 @@ attr_accessor :ones, :fives, :tens, :twenties, :fifties, :hundreds, :five_hundre
     @hundreds = 0
     @five_hundreds = 0
     @thousands = 0
+  	
+ 	
   	
 		while (res != 0)
 			if (res%5 == 0 and res%10 != 0 and res%20 != 0 and res%50 != 0 and res%100 !=0 and res%500 != 0 and res%1000 != 0)
