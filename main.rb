@@ -93,19 +93,14 @@ get '/purchase_product/:id' do
 end
 
 post '/purchase_product/:id' do 
-		if params[:id].empty? == true || params[:ones].empty? == true || params[:fives].empty? ==
-true || params[:tens].empty? == true || params[:twenties].empty? == true ||
-params[:fifties].empty? == true || params[:hundreds].empty? == true ||
-params[:five_hundreds].empty? == true || params[:thousands].empty? == true || params[:ones].to_i < 0 || params[:fives].to_i < 0 || params[:tens].to_i < 0 || params[:twenties].to_i < 0 ||
-params[:fifties].to_i < 0 || params[:hundreds].to_i < 0 || params[:five_hundreds].to_i < 0 ||
-params[:thousands].to_i < 0
+		if params[:id].empty? == true || params[:ones].empty? == true || params[:fives].empty? == true || params[:tens].empty? == true || params[:twenties].empty? == true || params[:fifties].empty? == true || params[:hundreds].empty? == true || params[:five_hundreds].empty? == true || params[:thousands].empty? == true || params[:ones].to_i < 0 || params[:fives].to_i < 0 || params[:tens].to_i < 0 || params[:twenties].to_i < 0 || params[:fifties].to_i < 0 || params[:hundreds].to_i < 0 || params[:five_hundreds].to_i < 0 || params[:thousands].to_i < 0 ||  (params[:ones].to_i == 0 && params[:fives].to_i == 0 && params[:tens].to_i == 0 && params[:twenties].to_i == 0 && params[:fifties].to_i == 0 && params[:hundreds].to_i == 0 && params[:five_hundreds].to_i == 0 && params[:thousands].to_i == 0)
 			erb :error
 		else
-			@product = Item.find(params[:id]) #debug for amt > quantity. nothing negative
+			@product = Item.find(params[:id]) 
 			@qSold = params[:amount].to_i
 			@calculator = MoneyCalculator.new(params[:ones], params[:fives], params[:tens], params[:twenties], params[:fifties], params[:hundreds], params[:five_hundreds], params[:thousands])
 			@change = @calculator.change(@product.price * @qSold) #[6] CUA, KEVIN
-			if @calculator.give_sum.to_i < (@qSold.to_i * @product.price.to_i)
+			if @calculator.give_sum.to_i < (@qSold * @product.price)
 				erb :error
 			else
 				@product.update_attributes!( #compute for total price sold

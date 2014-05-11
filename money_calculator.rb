@@ -60,6 +60,7 @@ attr_accessor :ones, :fives, :tens, :twenties, :fifties, :hundreds, :five_hundre
 				res-=1
 			end
 	  end
+
   hsh = {
   :ones =>@ones,
   :fives => @fives,
@@ -69,7 +70,7 @@ attr_accessor :ones, :fives, :tens, :twenties, :fifties, :hundreds, :five_hundre
   :hundreds => @hundreds,
   :five_hundreds => @five_hundreds,
   :thousands =>@thousands }
-  
+
 =begin
 hsh = {
   :ones => 0
